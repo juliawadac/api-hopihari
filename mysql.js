@@ -4,8 +4,9 @@ const mysql2 = require('mysql2');
     host: "localhost",
     user: "root",
     password: "root",
-    database: "hopihari_db",
-    port: 3307
+    database: "hopi_hari_db",
+    port: 3306
+
 
 });
 
