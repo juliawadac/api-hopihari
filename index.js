@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 
 const usuariosRoute = require("./routes/usuarios.route");
 const filasRoute = require("./routes/filas.route")
+const notifications = require("./routes/notification.route")
 
 app.use(cors());
 app.use(helmet());
