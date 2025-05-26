@@ -30,18 +30,18 @@ exports.atualizarUsuario = async (req,res) => {
 }
 
 exports.cadastrarUsuario = async (req, res) => {
-    try {
-        const hash = await bcrypt.hash(req.body.password, 10);
-        const resultado = await mysql.execute(
-            `insert into users (first_name, last_name, email, password, birth_date, phone)
-            values (?, ?, ?, ?, ?, ?)`,
-            [req.body.first_name, req.body.last_name, req.body.email, req.body.password, req.body.birth_date, req.body.phone]
-        );
-
-        return res.status(201).send({
-            "mensagem": "Usuario criado com sucesso!",
-            "resultado": resultado
-        });
+  try {
+    const hash = await bcrypt.hash(req.body.password, 10);
+    const resultado = await mysql.execute(
+      `insert into users (first_name, last_name, email, password, birth_date, phone)
+      values (?, ?, ?, ?, ?, ?);`,
+      [req.body.first_name, req.body.last_name, req.body.email, hash, req.body.birth_date, req.body.phone]
+    );
+    
+    return res.status(201).send({
+      "mensagem": "Usuario criado com sucesso!",
+      "resultado": resultado
+    });
 
 
     } catch (error) {
