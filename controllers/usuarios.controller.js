@@ -72,6 +72,7 @@ exports.login = async (req, res) => {
         email: usuario[0].email,
         birth_date: usuario[0].birth_date,
       }, "senhadojwt");
+      
       return res.status(200).send({
         "Mensagem": "Usuario autenticado com sucesso",
         "token": token,
